@@ -35,6 +35,7 @@ import de.fp.nfc_enable.ui.theme.NFCEnableTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
         // until this is not available, should come in Android 16 https://developer.android.com/reference/android/nfc/NfcAdapter#enable()
         // the app will directly jump into the nfc settings
         var intent = Intent(Settings.ACTION_NFC_SETTINGS);
@@ -102,21 +103,5 @@ class MainActivity : ComponentActivity() {
         else{
             Toast.makeText(this, "NFC is already disabled", Toast.LENGTH_SHORT).show();
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-            text = "Hello $name!",
-            modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    NFCEnableTheme {
-        Greeting("Android")
     }
 }
